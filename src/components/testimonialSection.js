@@ -42,7 +42,7 @@ export class TestimonialSection extends LitElement {
 
 .testimonials-container {
   display: flex;
-  justify-content: center; /* ✅ يجعل الكروت في المنتصف */
+  justify-content: center; 
   gap: 40px;
   flex-wrap: wrap;
 }
