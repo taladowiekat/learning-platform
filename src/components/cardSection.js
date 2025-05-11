@@ -6,116 +6,197 @@ export class CardsSection extends LitElement {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 50px 20px;
-      background-color: #26335d;
+      background-color: #1a1a2e;
       color: white;
-      text-align: center;
       min-height: 100vh;
-      overflow: auto;
+      padding: 50px 20px;
     }
 
-    h1 {
-      font-size: 3em;
-      font-weight: bold;
-      color: #7a55d3;
-      margin-bottom: 20px;
+    .container {
+      width: 100%;
+      max-width: 1200px;
     }
 
-    p {
-      font-size: 1.2em;
-      color: white;
+    .section-title {
       margin-bottom: 50px;
+      text-align: left;
+    }
+
+    .section-title h3 {
+      color: #7a55d3;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+
+    .section-title h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .section-title p {
+      font-size: 1em;
+      color: #ccc;
+      max-width: 600px;
+      line-height: 1.5;
     }
 
     .cards-container {
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
       gap: 20px;
       flex-wrap: wrap;
       width: 100%;
-      position: relative;
+    }
+
+    .card-wrapper {
+      transition: transform 0.3s ease-in-out;
+      flex: 1 1 calc(25% - 20px); /* 4 cards per row */
+      display: flex;
       justify-content: center;
-       margin-top: 200px;
-      
+    }
+
+    /* Adjust positions */
+    .card-wrapper:nth-child(1) {
+      transform: translateY(30px);
+    }
+    .card-wrapper:nth-child(2) {
+      transform: translateY(-30px);
+    }
+    .card-wrapper:nth-child(3) {
+      transform: translateY(20px);
+    }
+    .card-wrapper:nth-child(4) {
+      transform: translateY(-20px);
+    }
+
+    .card-wrapper:hover {
+      transform: translateY(-15px);
     }
 
     .card {
       background-color: white;
       color: #26335d;
-      width: 220px;
-      margin: 20px;
-      padding: 30px;
-      text-align: center;
+      width: 100%;
+      max-width: 220px;
+      padding: 30px 20px;
+      text-align: left;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
       transition: transform 0.3s ease-in-out;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
+    .card-wrapper:hover .card img {
+      transform: scale(1.1);
+    }
+
+    .card h4 {
+      font-size: 1em;
+      color: #26335d;
+      margin-bottom: 10px;
     }
 
     .card h3 {
-      font-size: 1.5em;
+      font-size: 1.2em;
       font-weight: bold;
-      color: #7a55d3;
+      margin-bottom: 10px;
+    }
+
+    .underline {
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: #e74c3c;
+      margin: 0 0 15px 0;
     }
 
     .card p {
-      font-size: 1em;
+      font-size: 0.9em;
       color: #555;
-      margin-top: 10px;
     }
 
-    .card .icon {
-      font-size: 3em;
-      color: #7a55d3;
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .card-wrapper {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+      }
     }
 
- 
-    .card:nth-child(1) {
-      transform: translateY(30px);
-    }
+    @media (max-width: 600px) {
+      .cards-container {
+        justify-content: center;
+      }
 
-    .card:nth-child(2) {
-      transform: translateY(-30px); 
-    }
+      .card-wrapper {
+        flex: 1 1 100%; /* Full width */
+        transform: translateY(0); /* Remove vertical offset for mobile */
+      }
 
-    .card:nth-child(3) {
-      transform: translateY(20px); 
-    }
-
-    .card:nth-child(4) {
-      transform: translateY(-20px); 
+      .section-title {
+        text-align: center;
+      }
     }
   `;
 
   render() {
     return html`
-      <div>
-        <h1>Every Client Matters</h1>
-        <p>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics</p>
+      <div class="container">
+        <div class="section-title">
+          <h3>Practice Advice</h3>
+          <h1>Every Client Matters</h1>
+          <p>
+            Problems trying to resolve the conflict between the two major realms of 
+            Classical physics: Newtonian mechanics.
+          </p>
+        </div>
+
         <div class="cards-container">
-          <div class="card">
-            <div class="icon">💻</div>
-            <h3>Training Courses</h3>
-            <p>The gradual accumulation of information about...</p>
+          <div class="card-wrapper">
+            <div class="card">
+              <img src="src/styles/icon cool-icon-l10.svg" alt="Training Courses" />
+              <h4>Training Courses</h4>
+              <h3>Training Courses</h3>
+              <span class="underline"></span>
+              <p>The gradual accumulation of information about...</p>
+            </div>
           </div>
-          <div class="card">
-            <div class="icon">🧪</div>
-            <h3>2,769 Online Courses</h3>
-            <p>The gradual accumulation of information about...</p>
+
+          <div class="card-wrapper">
+            <div class="card">
+              <img src="src/styles/icon cool-icon-l10.svg" alt="Online Courses" />
+              <h4>Online Courses</h4>
+              <h3>2,769 Online Courses</h3>
+              <span class="underline"></span>
+              <p>The gradual accumulation of information about...</p>
+            </div>
           </div>
-          <div class="card">
-            <div class="icon">📚</div>
-            <h3>Books Library</h3>
-            <p>The gradual accumulation of information about...</p>
+
+          <div class="card-wrapper">
+            <div class="card">
+              <img src="src/styles/icon cool-icon-l10.svg" alt="Books Library" />
+              <h4>Books Library</h4>
+              <h3>Books Library</h3>
+              <span class="underline"></span>
+              <p>The gradual accumulation of information about...</p>
+            </div>
           </div>
-          <div class="card">
-            <div class="icon">💬</div>
-            <h3>Consulting Services</h3>
-            <p>The gradual accumulation of information about...</p>
+
+          <div class="card-wrapper">
+            <div class="card">
+              <img src="src/styles/icon cool-icon-l10.svg" alt="Consulting Services" />
+              <h4>Consulting Services</h4>
+              <h3>2,769 Online Courses</h3>
+              <span class="underline"></span>
+              <p>The gradual accumulation of information about...</p>
+            </div>
           </div>
         </div>
       </div>

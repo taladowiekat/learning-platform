@@ -6,13 +6,25 @@ export class MyHeader extends LitElement {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 80vh;
       background-color: #1a1a2e;
       color: white;
-      text-align: center;
-      background-image: url('https://via.placeholder.com/1200x800');
-      background-size: cover;
-      background-position: center;
+      padding: 50px 20px;
+      min-height: 80vh;
+    }
+
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .left-section {
+      flex: 1 1 50%;
+      max-width: 50%;
+      text-align: left;
     }
 
     h1 {
@@ -20,10 +32,16 @@ export class MyHeader extends LitElement {
       font-weight: bold;
     }
 
+    p {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+
     .cta-buttons {
       display: flex;
       gap: 20px;
-      margin-top: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
     }
 
     .cta-button {
@@ -38,16 +56,56 @@ export class MyHeader extends LitElement {
     .cta-button:hover {
       background-color: #6c4ab2;
     }
+
+    .right-section {
+      flex: 1 1 40%;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .right-section img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .left-section, .right-section {
+        max-width: 100%;
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .cta-buttons {
+        justify-content: center;
+      }
+    }
   `;
 
   render() {
     return html`
-      <div>
-        <h1>Best Learning Opportunities</h1>
-        <p>Every day brings with it a fresh set of learning possibilities.</p>
-        <div class="cta-buttons">
-          <a href="#quote" class="cta-button">Get Quote Now</a>
-          <a href="#learn" class="cta-button">Learn More</a>
+      <div class="main-container">
+        <div class="left-section">
+          <h1>Best Learning Opportunities</h1>
+          <p>Every day brings with it a fresh set of learning possibilities.</p>
+          <div class="cta-buttons">
+            <a href="#quote" class="cta-button">Get Quote Now</a>
+            <a href="#learn" class="cta-button">Learn More</a>
+          </div>
+        </div>
+        <div class="right-section">
+          <img src="src/styles/none.png" alt="Learning Illustration" />
         </div>
       </div>
     `;

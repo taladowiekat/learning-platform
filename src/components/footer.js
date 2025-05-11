@@ -7,60 +7,98 @@ class FooterSection extends LitElement {
       background-color: #fff;
       color: #26335d;
       padding: 50px 20px;
-      text-align: center;
     }
 
     .footer-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-    }
-
-    .footer-container .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      width: 100%;
+      gap: 40px;
       max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .footer-container .footer-links div {
+    .footer-links {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 30px;
     }
 
-    .footer-container .footer-links div a {
+    .footer-links div {
+      min-width: 150px;
+      text-align: center;
+    }
+
+    .footer-links h3 {
+      font-size: 1em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
       color: #26335d;
       text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.9em;
     }
 
-    .footer-container .footer-links div a:hover {
+    .footer-links a:hover {
       color: #7a55d3;
     }
 
-    .footer-container .footer-bottom {
-      font-size: 1em;
+    .get-in-touch a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .get-in-touch i {
       color: #7a55d3;
-      margin-top: 40px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
     }
 
     .social-icons a {
       color: #7a55d3;
       font-size: 1.5em;
-      margin: 0 10px;
       text-decoration: none;
     }
 
-    .social-icons a:hover {
-      color: #26335d;
+    .footer-bottom {
+      text-align: center;
+      padding: 20px 0;
+      width: 100%;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-bottom p {
+      color: #6C6C72;
+      font-size: 0.9em;
+      margin: 0;
     }
 
     @media (max-width: 768px) {
-      .footer-container .footer-links {
-        flex-wrap: wrap;
-        justify-content: space-around;
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links div {
+        min-width: 100%;
+      }
+
+      .get-in-touch a {
+        justify-content: center;
       }
     }
   `;
@@ -97,22 +135,21 @@ class FooterSection extends LitElement {
             <a href="#">Customers</a>
             <a href="#">API</a>
           </div>
-          <div>
+          <div class="get-in-touch">
             <h3>Get In Touch</h3>
-            <a href="#">(480) 555-0103</a>
-            <a href="#">4517 Washington Ave. Manchester, Kentucky 39495</a>
-            <a href="mailto:debra.holt@example.com">debra.holt@example.com</a>
+            <a href="#"><i class="fas fa-phone"></i>(480) 555-0103</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i>4517 Washington Ave. Manchester, Kentucky 39495</a>
+            <a href="mailto:debra.holt@example.com"><i class="fas fa-envelope"></i>debra.holt@example.com</a>
           </div>
-        </div>
-
-        <div class="social-icons">
-          <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
 
         <div class="footer-bottom">
           <p>Made With Love By Figmaland All Right Reserved</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
         </div>
       </div>
     `;

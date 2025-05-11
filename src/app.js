@@ -19,8 +19,8 @@ class MyApp extends LitElement {
       <stats-section></stats-section> 
       <video-section></video-section>
       <cards-section></cards-section>
-      <course-section></course-section>
       <popular-course></popular-course>
+      <course-section></course-section>
       <testimonial-section></testimonial-section>
       <team-section></team-section>
       <newsletter-section></newsletter-section>

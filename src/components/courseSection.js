@@ -4,53 +4,55 @@ export class CourseSection extends LitElement {
   static styles = css`
     :host {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 50px 20px;
-      background-color: #26335d;
+      justify-content: center;
+      align-items: flex-start;
+       padding-bottom: 100px;
+      background-color: #1a1a2e;
       color: white;
-      min-height: 100vh;
-      text-align: center;
+      min-height: 80vh;
+      
     }
 
-   
+    .section-subtitle {
+      color: #7a55d3;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1em;
+  
+    }
+
     h1 {
       font-size: 3em;
       font-weight: bold;
-      color: #7a55d3;
-      margin-bottom: 20px;
-      text-align: left;
+      color: white;
+      
+      
       width: 100%;
     }
 
     p {
-      font-size: 1.2em;
-      color: white;
-      margin-bottom: 50px;
-      text-align: left;
+      font-size: 1.1em;
+      color: #ccc;
       width: 100%;
+      max-width: 600px;
     }
 
     .cards-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       gap: 20px;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       width: 100%;
       max-width: 1200px;
     }
 
     .card {
-      background-color: #1e1e1e;
-      color: white;
-      width: 250px;  
-      height: 400px; 
-      margin: 20px;
-      padding: 20px;
-      text-align: center;
+      background-color: white;
+      color: #26335d;
+      width: 260px;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
       transition: transform 0.3s ease-in-out;
     }
 
@@ -60,134 +62,154 @@ export class CourseSection extends LitElement {
 
     .sale-badge {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: red;
+      top: 15px;
+      left: 15px;
+      background-color: #e74c3c;
       color: white;
       padding: 5px 10px;
+      font-size: 0.8em;
       font-weight: bold;
       border-radius: 5px;
+    }
+
+    .card-header {
+      position: relative;
     }
 
     .card img {
       width: 100%;
-      height: 150px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 8px;
     }
 
-    .card h3 {
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #7a55d3;
-      margin-top: 10px;
+    .icons-bar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0;
     }
 
-    .card p {
-      font-size: 1em;
-      color: #bbb;
-      margin-top: 10px;
-    }
-
-    .card .price {
+    .icon-btn {
+      background-color: #f0f0f0;
+      border-radius: 50%;
+      padding: 10px;
       font-size: 1.2em;
-      color: #7a55d3;
-      font-weight: bold;
-      margin-top: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    .card .old-price {
+    .icon-btn:hover {
+      background-color: #ddd;
+    }
+
+    .card-content {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .category {
+      color: #7a55d3;
+      font-weight: bold;
+      font-size: 0.9em;
+      margin-bottom: 8px;
+    }
+
+    .rating {
+      background-color: #26335d;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 15px;
+      font-size: 0.8em;
+      margin-left: 8px;
+    }
+
+    .title {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .description {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .sales-info {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 1em;
+      font-weight: bold;
+    }
+
+    .old-price {
       text-decoration: line-through;
       color: #bbb;
       margin-left: 10px;
+      font-size: 0.9em;
     }
 
-    .card .stars {
-      margin-top: 10px;
-    }
-
-    .card .stars span {
-      color: #ffdd00;
-      font-size: 1.2em;
-    }
-
-    .card .button {
-      background-color: #7a55d3;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      margin-top: 15px;
-      cursor: pointer;
-      text-decoration: none;
+    .learn-more-btn {
       display: inline-block;
+      margin-top: 15px;
+      color: #7a55d3;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    .card .button:hover {
-      background-color: #6c4ab2;
+    .learn-more-btn::after {
+      content: " →";
+      transition: margin-left 0.3s;
+    }
+
+    .learn-more-btn:hover::after {
+      margin-left: 5px;
     }
   `;
 
   render() {
     return html`
       <div>
+        <div class="section-subtitle">Courses</div>
         <h1>Most Popular Courses</h1>
-        <p>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics</p>
+        <p>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics.</p>
+
         <div class="cards-container">
-          <div class="card">
-            <div class="sale-badge">Sale</div>
-            <img src="https://via.placeholder.com/250x150" alt="Course Image">
-            <h3>Expert Instruction</h3>
-            <p>We focus on ergonomics and meeting you...</p>
-            <div class="stars">
-              <span>⭐ ⭐ ⭐ ⭐ 4.9</span>
-            </div>
-            <div class="price">
-              $6.48 <span class="old-price">$16.48</span>
-            </div>
-            <a href="#" class="button">Learn More</a>
-          </div>
+          ${this.renderCard("Expert Instruction", "Welcome", "src/styles/fixed-height.png", "15 Sales", "$16.48", "$6.48")}
+          ${this.renderCard("2,769 Online Courses", "Welcome", "src/styles/fixed-height.png", "15 Sales", "$16.48", "$6.48")}
+          ${this.renderCard("Training Courses", "For Better Future", "src/styles/fixed-height.png", "15 Sales", "$16.48", "$6.48")}
+          ${this.renderCard("Lifetime Access", "Welcome", "src/styles/fixed-height.png", "15 Sales", "$16.48", "$6.48")}
+        </div>
+      </div>
+    `;
+  }
 
-          <div class="card">
-            <div class="sale-badge">Sale</div>
-            <img src="https://via.placeholder.com/250x150" alt="Course Image">
-            <h3>2,769 Online Courses</h3>
-            <p>We focus on ergonomics and meeting you...</p>
-            <div class="stars">
-              <span>⭐ ⭐ ⭐ ⭐ 4.9</span>
-            </div>
-            <div class="price">
-              $6.48 <span class="old-price">$16.48</span>
-            </div>
-            <a href="#" class="button">Learn More</a>
+  renderCard(title, category, imageUrl, sales, oldPrice, newPrice) {
+    return html`
+      <div class="card">
+        <div class="card-header">
+          <span class="sale-badge">Sale</span>
+          <img src="${imageUrl}" alt="Course Image">
+        </div>
+        <div class="icons-bar">
+          <div class="icon-btn">♡</div>
+          <div class="icon-btn">🛒</div>
+          <div class="icon-btn">👁️</div>
+        </div>
+        <div class="card-content">
+          <div>
+            <span class="category">${category}</span>
+            <span class="rating">4.9 ★</span>
           </div>
-
-          <div class="card">
-            <div class="sale-badge">Sale</div>
-            <img src="https://via.placeholder.com/250x150" alt="Course Image">
-            <h3>Training Courses</h3>
-            <p>We focus on ergonomics and meeting you...</p>
-            <div class="stars">
-              <span>⭐ ⭐ ⭐ ⭐ 4.9</span>
-            </div>
-            <div class="price">
-              $6.48 <span class="old-price">$16.48</span>
-            </div>
-            <a href="#" class="button">Learn More</a>
-          </div>
-
-          <div class="card">
-            <div class="sale-badge">Sale</div>
-            <img src="https://via.placeholder.com/250x150" alt="Course Image">
-            <h3>Lifetime Access</h3>
-            <p>We focus on ergonomics and meeting you...</p>
-            <div class="stars">
-              <span>⭐ ⭐ ⭐ ⭐ 4.9</span>
-            </div>
-            <div class="price">
-              $6.48 <span class="old-price">$16.48</span>
-            </div>
-            <a href="#" class="button">Learn More</a>
-          </div>
+          <div class="title">${title}</div>
+          <div class="description">We focus on ergonomics and meeting you...</div>
+          <div class="sales-info">📦 ${sales}</div>
+          <div class="price">${newPrice}<span class="old-price">${oldPrice}</span></div>
+          <a href="#" class="learn-more-btn">Learn More</a>
         </div>
       </div>
     `;
